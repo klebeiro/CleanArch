@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.Domain.Entities
+namespace CleanArchitecture.Application.UseCases.DeleteUser
 {
-    public sealed class User : BaseEntity
+    public sealed record DeleteUserResponse
     {
+        public Guid Id { get; set; }
         public string? Email { get; set; }
         public string? Name { get; set; }
     }

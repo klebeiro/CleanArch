@@ -1,4 +1,13 @@
+using CleanArchitecture.API.Extensions;
+using CleanArchitecture.Application.Services;
+using CleanArchitecture.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.ConfigurePersistenceApp(builder.Configuration);
+builder.Services.ConfigureApplicationApp();
+builder.Services.ConfigureCorsPolicy();
+
 
 // Add services to the container.
 
@@ -20,6 +29,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseCors();
 app.MapControllers();
 
 app.Run();
